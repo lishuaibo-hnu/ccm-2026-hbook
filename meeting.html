@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年计算力学发展战略研讨会 会议手册</title>
+    <style>
+        :root {
+            /* 【修改点】主色调改为学术蓝，对应您提供的图片 */
+            --primary: #0056b3; 
+            --primary-dark: #003366;
+            
+            /* 强调色保持橙色，与蓝色互补，很醒目 */
+            --accent: #ff6f00;
+            
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --light-text: #7f8c8d;
+            
+            /* 保持您喜欢的淡黄色和淡蓝色区块 */
+            --theme-yellow-bg: #fffde7; 
+            --theme-yellow-border: #fff59d;
+            --theme-blue-bg: #e1f5fe;   
+            --theme-blue-border: #b3e5fc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding-bottom: 70px;
+            line-height: 1.6;
+        }
+
+        /* 顶部封面区 */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 30px 20px 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 { margin: 0; font-size: 1.6rem; font-weight: 700; line-height: 1.4; }
+        .subtitle { font-size: 0.95rem; opacity: 0.90; margin-top: 8px; font-weight: 500; }
+        .meta-info { margin-top: 20px; font-size: 0.85rem; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .meta-tag { background: rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); }
+
+        /* 内容容器 */
+        .container { max-width: 800px; margin: -20px auto 0; padding: 0 15px; position: relative; z-index: 10; }
+
+        /* 卡片样式 */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        /* 实用信息方块样式 - 淡黄色主题 */
+        .grid-2-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .info-box {
+            background-color: var(--theme-yellow-bg);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid var(--theme-yellow-border);
+        }
+        .info-label {
+            display: block;
+            font-size: 0.8rem;
+            color: #8d6e63;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #4e342e;
+            word-break: break-all;
+        }
+
+        /* 表格样式 */
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            background: white;
+        }
+        .custom-table th {
+            background-color: #ffecb3;
+            color: #5d4037;
+            font-weight: bold;
+            padding: 10px 8px;
+            text-align: center;
+            border: 1px solid #ffe082;
+        }
+        .custom-table td {
+            padding: 10px 8px;
+            border: 1px solid #eee;
+            text-align: center;
+            vertical-align: middle;
+            color: #333;
+        }
+        .custom-table tr:nth-child(even) { background-color: #fffbf0; }
+        .text-left { text-align: left !important; }
+
+        /* 交通信息蓝色背景区域样式 */
+        .transport-blue-section {
+            background-color: var(--theme-blue-bg);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid var(--theme-blue-border);
+        }
+
+        /* 列表样式 */
+        .org-section { margin-bottom: 15px; }
+        .org-label { font-weight: bold; color: #333; font-size: 0.95rem; display: block; margin-bottom: 4px; }
+        .org-content { font-size: 0.9rem; color: #555; margin: 0; padding-left: 0; list-style: none; }
+        .theme-list { padding-left: 20px; margin: 0; }
+        .theme-list li { margin-bottom: 8px; font-size: 0.95rem; text-align: justify; }
+
+        /* 日程列表 */
+        .schedule-group { margin-bottom: 25px; }
+        .date-header { 
+            background: #e3f2fd; /* 日期背景也微调为淡蓝色，呼应主题 */
+            color: var(--primary); 
+            padding: 8px 12px; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+            display: inline-block;
+        }
+        .schedule-item { display: flex; padding: 12px 0; border-bottom: 1px solid #eee; }
+        .schedule-item:last-child { border-bottom: none; }
+        .time-col { min-width: 90px; font-weight: 600; color: var(--text); font-size: 0.9rem; }
+        .content-col { flex: 1; }
+        .session-title { font-weight: 600; font-size: 1rem; color: #333; }
+        .session-desc { font-size: 0.85rem; color: #777; margin-top: 4px; }
+
+        /* 底部浮动导航 */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: white; border-top: 1px solid #eee;
+            display: flex; justify-content: space-around;
+            padding: 10px 0; box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+        .nav-btn { text-align: center; color: var(--light-text); text-decoration: none; font-size: 0.75rem; flex: 1; }
+        .nav-btn.active { color: var(--primary); font-weight: bold; }
+        .nav-icon { display: block; font-size: 1.3rem; margin-bottom: 2px; }
+        
+        /* 会务联系人网格 - 淡黄色主题 */
+        .contact-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .contact-card { 
+            background: var(--theme-yellow-bg); 
+            padding: 12px; 
+            border-radius: 8px; 
+            border-left: 3px solid var(--accent); 
+        }
+        .contact-name { font-weight: bold; color: #4e342e; }
+        .contact-detail { font-size: 0.85rem; color: #8d6e63; display: block; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>2026年计算力学发展战略研讨会</h1>
+        <div class="subtitle">暨计算力学专业委员会党建</div>
+        <div class="meta-info">
+            <span class="meta-tag">📅 2026年1月9日-11日</span>
+            <span class="meta-tag">📍 湖南 · 韶山</span>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div id="tab-about" class="tab-content active">
+            <div class="card">
+                <h3 class="card-title">会议主题</h3>
+                <ol class="theme-list">
+                    <li>计算力学的最新研究进展、主要挑战与战略研讨</li>
+                    <li>面向国家战略需求、重大需求与学科交叉融合的计算力学发展新方向</li>
+                    <li>计算力学学科的发展规划与人才培养</li>
+                    <li>计算力学专业委员会党小组党建</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">组织结构</h3>
+                <div class="org-section">
+                    <span class="org-label">主办单位</span>
+                    <ul class="org-content">
+                        <li>中国力学学会</li>
+                        <li>中国力学学会计算力学专业委员会</li>
+                    </ul>
+                </div>
+                <div class="org-section">
+                    <span class="org-label">指导单位</span>
+                    <ul class="org-content">
+                        <li>国家自然科学基金委员会数理科学部</li>
+                    </ul>
+                </div>
+                <div class="org-section">
+                    <span class="org-label">承办单位</span>
+                    <ul class="org-content">
+                        <li>湖南大学机械与运载工程学院</li>
+                        <li>湖南大学整车先进设计制造技术全国重点实验室</li>
+                    </ul>
+                </div>
+                <div class="org-section">
+                    <span class="org-label">协办单位</span>
+                    <ul class="org-content">
+                        <li>大连工业软件创新发展研究院</li>
+                        <li>大连理工大学工业装备结构分析优化与CAE软件全国重点实验室</li>
+                    </ul>
+                </div>
+            </div>
+            
+             <div class="card" style="background-color: #e3f2fd; border: 1px solid #bbdefb;">
+                <h3 class="card-title" style="color: #1565c0; border-color: #1565c0;">温馨提示</h3>
+                <p style="font-size: 0.9rem; color: #444; margin: 0;">
+                    韶山1月平均气温为5℃，昼夜温差大，请参会代表注意防寒保暖。
+                </p>
+            </div>
+        </div>
+
+        <div id="tab-agenda" class="tab-content">
+            <div class="card">
+                <div class="schedule-group">
+                    <div class="date-header">1月9日 (周五)</div>
+                    <div class="schedule-item">
+                        <div class="time-col">全天</div>
+                        <div class="content-col">
+                            <div class="session-title">报到注册</div>
+                            <div class="session-desc">地点：韶山建国酒店大堂</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schedule-group">
+                    <div class="date-header">1月10日 (周六)</div>
+                    <div class="schedule-item">
+                        <div class="time-col">08:30-12:00</div>
+                        <div class="content-col">
+                            <div class="session-title">学术报告</div>
+                            <div class="session-desc">特邀专家报告 / 战略研讨</div>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time-col">14:00-18:00</div>
+                        <div class="content-col">
+                            <div class="session-title">学术报告 & 专题研讨</div>
+                            <div class="session-desc">学科交叉融合方向探讨</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schedule-group">
+                    <div class="date-header">1月11日 (周日)</div>
+                    <div class="schedule-item">
+                        <div class="time-col">08:00-14:00</div>
+                        <div class="content-col">
+                            <div class="session-title">专题交流及党建</div>
+                            <div class="session-desc">计算力学专业委员会党小组活动</div>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time-col">14:00-18:00</div>
+                        <div class="content-col">
+                            <div class="session-title">返程</div>
+                            <div class="session-desc">安排大巴送往机场/高铁站</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-guide" class="tab-content">
+            <div class="card">
+                <h3 class="card-title">实用信息</h3>
+                <div class="grid-2-col">
+                    <div class="info-box">
+                        <span class="info-label">WiFi 名称</span>
+                        <span class="info-value">JG-Hotel</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="info-label">WiFi 密码</span>
+                        <span class="info-value">无密码</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="info-label">午餐地点</span>
+                        <span class="info-value">建国酒店</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="info-label">晚宴地点</span>
+                        <span class="info-value">建国酒店 二楼宴会厅</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">交通指引</h3>
+                
+                <div class="transport-blue-section">
+                    <h4 style="margin: 0 0 10px; color: #0277bd; font-size: 0.95rem;">📍 报到安排</h4>
+                    <table class="custom-table">
+                        <tr>
+                            <th width="30%">时间</th>
+                            <th width="30%">地点</th>
+                            <th>地址</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>1月9日</b><br>
+                                12:00-22:00
+                            </td>
+                            <td>韶山建国<br>酒店大堂</td>
+                            <td>湖南韶山<br>东方红路8号</td>
+                        </tr>
+                    </table>
+
+                    <h4 style="margin: 15px 0 5px; color: #0277bd; font-size: 0.95rem;">🚕 接送机安排</h4>
+                    <p style="font-size: 0.85rem; color: #555; text-align: justify; margin-bottom: 10px;">
+                        1月9日全天，在长沙黄花机场、长沙南站 (高铁、动车) 出站口将会有工作人员迎接送到韶山建国酒店。如需自行前往，请参考下表：
+                    </p>
+
+                    <table class="custom-table" style="margin-bottom: 0;">
+                        <tr>
+                            <th width="25%">机场/车站</th>
+                            <th width="40%">途经</th>
+                            <th>路程</th>
+                        </tr>
+                        <tr>
+                            <td><b>黄花机场</b></td>
+                            <td class="text-left">
+                                1. 长沙绕城高速<br>
+                                2. 长株高速、沪昆高速<br>
+                                3. 宁韶高速
+                            </td>
+                            <td class="text-left">
+                                95.2 公里<br>
+                                约81分钟<br>
+                                打车约280元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>长沙南站</b><br>(高铁站)</td>
+                            <td class="text-left">
+                                长芷高速<br>
+                                宁韶高速
+                            </td>
+                            <td class="text-left">
+                                74.5 公里<br>
+                                约69分钟<br>
+                                打车约208元
+                            </td>
+                        </tr>
+                    </table>
+                </div> 
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">会务联系</h3>
+                <div class="contact-grid">
+               <div class="contact-card">
+                        <div class="contact-name">侯淑娟</div>
+                        <span class="contact-detail">📞 139-7519-4703</span>
+                        
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-name">刘文洋</div>
+                        <span class="contact-detail">📞 178-7233-8226</span>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-name">毛贻齐</div>
+                        <span class="contact-detail">📞 136-7748-5973</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-btn active" onclick="switchTab('about', this)">
+            <span class="nav-icon">ℹ️</span>
+            关于会议
+        </a>
+        <a href="#" class="nav-btn" onclick="switchTab('agenda', this)">
+            <span class="nav-icon">📅</span>
+            会议日程
+        </a>
+        <a href="#" class="nav-btn" onclick="switchTab('guide', this)">
+            <span class="nav-icon">🧭</span>
+            指南/地图
+        </a>
+    </nav>
+
+    <script>
+        function switchTab(tabId, element) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+            element.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
